@@ -1,0 +1,4 @@
+library(httr)
+setwd("~/Desktop/Coursera/GettingAndCleaningData/")
+source("Q1_1")
+source("Q1_1.R")

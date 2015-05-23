@@ -32,8 +32,10 @@ myExtract <- function(directory, myMerge){
         return extract
 }
 # 3.Uses descriptive activity names to name the activities in the data set
-changeName <- function(directory, data) {
-        
+changeName <- function(data, features) {
+        colNames <- as.character(features[ , 2])
+        colnames(data) <- colNames
+        return data
 }
 # 4.Appropriately labels the data set with descriptive variable names.
 # 5.From the data set in step 4, creates a second, 

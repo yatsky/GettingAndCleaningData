@@ -60,7 +60,8 @@ myExtract <- function(directory, data){
                 }
                 
         }
-        data <- cbind(data$actName, data[ , actID + 1]) 
+        data <- cbind(data$actName, data[ , actID + 1])
+        colnames(data)[1] <- "actName"
         # actID in the features list is 1 index behind the data set
         # column list, which contains actName column
         return (data)
@@ -70,7 +71,26 @@ myExtract <- function(directory, data){
 # 5.From the data set in step 4, creates a second, 
 # independent tidy data set with the average of each variable for each activity and each subject.
 createData <- function(data) {
+        # create a new data set for return
         colNames <- names(data)
+        newData <- data.frame(matrix(ncol=1, nrow=180))
         
+        # Add subject info
+        testsubject <- read.table(
+                "~/Desktop//Coursera/GettingAndCleaningData/Dataset/test/subject_test.txt")
+        trainsubject <- read.table(
+                "~/Desktop//Coursera/GettingAndCleaningData/Dataset/train/subject_train.txt")
+        subject <- rbind(testsubject, trainsubject)
+        colnames(subject) <- "subject"
+        data <- cbind(subject, data)
         
+        for ( i in 3:length(names(data))) {
+                newData <- cbind(newData, aggregate(data[ , i]~subject+actName,
+                                                    data, mean))
+        }
+        newData <- newData[ , -1]
+        i <- 1:65
+        newData <- newData[, -c(3*i+1, 3*i+2)]
+        names(newData) <- c("subject", colNames)
+        return (newData)
 }

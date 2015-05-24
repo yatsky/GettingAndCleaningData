@@ -1,8 +1,8 @@
 #This is the code book
-The first column ** subject ** stands for the specific subject performing all the activities.
-The second column ** actName ** stands for activity names. i.e. "WALKING", "LAYING", etc.
+The first column **subject** stands for the specific subject performing all the activities.
+The second column **actName** stands for activity names. i.e. "WALKING", "LAYING", etc.
 Other explanantion on features can be found in "features.txt" contained in the Dataset folder. I've attached some texts below.
-Also, features like *** angle(X, gravityMean) *** are not included since it's a measurement of the ** ANGLE ** between two vectors.
+Also, features like ***angle(X, gravityMean)*** are not included since it's a measurement of the **ANGLE** between two vectors.
 ___
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 

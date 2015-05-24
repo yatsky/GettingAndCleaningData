@@ -14,6 +14,7 @@ changeName <- function(data, features) {
         colnames(data) <- colNames
         return (data)
 }
+
 # 3.Uses descriptive activity names to name the activities in the data set
 addActName <- function(data, testActDir, trainActDir) {
         test <- read.table(testActDir)
@@ -47,6 +48,7 @@ addActName <- function(data, testActDir, trainActDir) {
         data <- cbind(actName, data)
         return (data)
 }
+
 # 2.Extracts only the measurements on the mean and standard deviation for each measurement.
 myExtract <- function(directory, data){
         filedir <- paste(directory, "features.txt", sep="/")
@@ -66,7 +68,6 @@ myExtract <- function(directory, data){
         # column list, which contains actName column
         return (data)
 }
-
 
 # 5.From the data set in step 4, creates a second, 
 # independent tidy data set with the average of each variable for each activity and each subject.
